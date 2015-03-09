@@ -4,21 +4,27 @@ import android.app.Activity;
 import android.widget.TextView;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
+//import org.junit.runner.RunWith;
+//import org.robolectric.Robolectric;
+//import org.robolectric.RobolectricTestRunner;
+//import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.*;
 
-@RunWith (RobolectricTestRunner.class)
-@Config  (emulateSdk = 18,
-          reportSdk = 18)
+//@RunWith (RobolectricTestRunner.class)
+//@Config  (emulateSdk = 18,
+//          reportSdk = 18)
+@Deprecated
 public class SimpleUITest {
 
     /*
     http://tools.android.com/tech-docs/unit-testing-support
     http://blog.blundell-apps.com/android-gradle-app-with-robolectric-junit-tests/
+
+    MOCKITO
+    https://corner.squareup.com/2012/10/mockito-android.html
+    http://www.baeldung.com/mockito-verify
+    http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html
      */
 
     @Test
