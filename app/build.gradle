@@ -27,13 +27,13 @@ android {
 
 }
 
-// NOTE:
-// Jacoco report can be generated using 'gradlew jacocoTestReport' or 'gradlew assemble'
+// Jacoco configuration
 jacoco {
     toolVersion = "0.7.1.201405082137"
     reportsDir = file("${buildDir}/reports/jacoco")
 }
 
+// Jacoco coverage report task
 task jacocoTestReport (type: JacocoReport, dependsOn: "test") {
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
@@ -41,6 +41,7 @@ task jacocoTestReport (type: JacocoReport, dependsOn: "test") {
     reports {
         xml.enabled false
         csv.enabled false
+        // Location to find the coverage reports
         html.destination "${buildDir}/reports/jacoco/html"
     }
 
