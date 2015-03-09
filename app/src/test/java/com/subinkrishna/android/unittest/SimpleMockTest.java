@@ -35,7 +35,7 @@ public class SimpleMockTest {
         when(view.getWindowToken()).thenReturn(binder);
 
         // Call
-        hideKeyboard(activity);
+        Util.hideKeyboard(activity);
 
         // Verify
         verify(imm).hideSoftInputFromWindow(view.getWindowToken(), 0); // Verifies call to hideSoftInputFromWindow()
@@ -54,23 +54,10 @@ public class SimpleMockTest {
         when(activity.getSystemService(Context.INPUT_METHOD_SERVICE)).thenReturn(imm);
 
         // Call
-        hideKeyboard(activity);
+        Util.hideKeyboard(activity);
 
         // Verify
         verifyZeroInteractions(imm); // Verifies no interaction with imm
     }
 
-    /**
-     * Hides (soft) keyboard)
-     *
-     * @param activity
-     */
-    public static void hideKeyboard(Activity activity) {
-        View focusedView = (null != activity) ? activity.getCurrentFocus() : null;
-        if (null != focusedView) {
-            InputMethodManager imm = (InputMethodManager) activity.getSystemService(
-                    Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-        }
-    }
 }

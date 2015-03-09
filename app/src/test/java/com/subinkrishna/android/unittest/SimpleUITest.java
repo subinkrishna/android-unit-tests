@@ -18,13 +18,17 @@ import static org.junit.Assert.*;
 public class SimpleUITest {
 
     /*
+    Unit testing:
     http://tools.android.com/tech-docs/unit-testing-support
     http://blog.blundell-apps.com/android-gradle-app-with-robolectric-junit-tests/
 
-    MOCKITO
+    MOCKITO:
     https://corner.squareup.com/2012/10/mockito-android.html
     http://www.baeldung.com/mockito-verify
     http://site.mockito.org/mockito/docs/current/org/mockito/Mockito.html
+
+    Jacoco:
+    http://minimalbible.github.io/android-and-jacoco/
      */
 
     @Test

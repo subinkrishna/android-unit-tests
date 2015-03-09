@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'org.robolectric'
+apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 21
@@ -27,11 +27,43 @@ android {
 
 }
 
+// NOTE:
+// Jacoco report can be generated using 'gradlew jacocoTestReport' or 'gradlew assemble'
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+    reportsDir = file("${buildDir}/reports/jacoco")
+}
+
+task jacocoTestReport (type: JacocoReport, dependsOn: "test") {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/jacoco/html"
+    }
+
+    classDirectories = fileTree(
+            dir: 'build/intermediates/classes/debug',
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/*$ViewInjector*.*',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*'])
+
+    sourceDirectories = files([
+            'src/main/java',
+            'build/generated/source/buildConfig/debug',
+            'build/generated/source/r/debug'])
+
+    executionData = files('build/jacoco/testDebug.exec')
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
 
     testCompile 'junit:junit:4.10'
     testCompile 'org.mockito:mockito-all:1.9.5'
-    //testCompile 'org.robolectric:robolectric:2.4'
 }
