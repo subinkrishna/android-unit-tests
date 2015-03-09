@@ -6,6 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+/**
+ * This is auto-created during the module creation.
+ * NOTE: We are not unit-testing it.
+ *
+ * @author Subinkrishna Gopi
+ */
 public class MainActivity extends ActionBarActivity {
 
     @Override

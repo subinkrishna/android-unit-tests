@@ -9,6 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * This class is the target for code coverage.
+ *
  * @author Subinkrishna Gopi
  */
 public class Util {
