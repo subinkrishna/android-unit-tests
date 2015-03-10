@@ -33,8 +33,8 @@ jacoco {
     reportsDir = file("${buildDir}/reports/jacoco")
 }
 
-// Jacoco coverage report task
-task jacocoTestReport (type: JacocoReport, dependsOn: "test") {
+// Jacoco coverage task
+task codeCoverageReport (type: JacocoReport, dependsOn: "test") {
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
 

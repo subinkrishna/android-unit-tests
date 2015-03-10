@@ -11,8 +11,10 @@ gradlew clean check
 gradlew clean build
 
 // Prepares code coverage report
-gradlew clean jacocoTestReport
-```  
+gradlew clean codeCoverageReport
+```
+
+> **NOTE: ** In version 1.1 of Android build tools, **test** doesn't **build**. It is NOT recommended to use `gradlew clean test` or `gradlew clean codeCoverageReport` until they fix it. Use **`gradlew clean build codeCoverageReport`** instead. More information on this issue: [https://code.google.com/p/android/issues/detail?id=140180](https://code.google.com/p/android/issues/detail?id=140180). This issues is expected to be resolved in version 1.2.
 
 ### Usefil links
 * Android unit testing support - http://tools.android.com/tech-docs/unit-testing-support
