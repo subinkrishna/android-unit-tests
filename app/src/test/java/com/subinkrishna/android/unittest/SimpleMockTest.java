@@ -23,7 +23,7 @@ public class SimpleMockTest {
 
     @Test
     public void hideKeyboardTest() {
-        //Step 1: Creating mock objects
+        // Step 1: Creating mock objects
         Activity activity = mock(Activity.class);
         View view = mock(View.class);
         IBinder binder = mock(IBinder.class);
