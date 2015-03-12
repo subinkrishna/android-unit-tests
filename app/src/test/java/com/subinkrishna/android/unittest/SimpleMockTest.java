@@ -23,7 +23,7 @@ public class SimpleMockTest {
 
     @Test
     public void hideKeyboardTest() {
-        //Creating mock objects
+        //Step 1: Creating mock objects
         Activity activity = mock(Activity.class);
         View view = mock(View.class);
         IBinder binder = mock(IBinder.class);
@@ -34,10 +34,10 @@ public class SimpleMockTest {
         when(activity.getSystemService(Context.INPUT_METHOD_SERVICE)).thenReturn(imm);
         when(view.getWindowToken()).thenReturn(binder);
 
-        // Call
+        // Step 2: Call
         Util.hideKeyboard(activity);
 
-        // Verify
+        // Step 3: Verify
         verify(imm).hideSoftInputFromWindow(view.getWindowToken(), 0); // Verifies call to hideSoftInputFromWindow()
         verifyNoMoreInteractions(imm);  // Verifies no more interaction with imm
     }
