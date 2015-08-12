@@ -2,18 +2,22 @@ apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 22
     buildToolsVersion "21.1.2"
 
     defaultConfig {
         applicationId "com.subinkrishna.android.unittest"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
 
     buildTypes {
+        debug {
+
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -34,7 +38,7 @@ jacoco {
 }
 
 // Jacoco coverage task
-task codeCoverageReport (type: JacocoReport, dependsOn: "test") {
+task codeCoverageReport (type: JacocoReport, dependsOn: "testDebugUnitTest") {
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
 
@@ -58,12 +62,12 @@ task codeCoverageReport (type: JacocoReport, dependsOn: "test") {
             'build/generated/source/buildConfig/debug',
             'build/generated/source/r/debug'])
 
-    executionData = files('build/jacoco/testDebug.exec')
+    executionData = files('build/jacoco/testDebugUnitTest.exec')
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:appcompat-v7:22.2.0'
 
     testCompile 'junit:junit:4.10'
     testCompile 'org.mockito:mockito-all:1.9.5'
